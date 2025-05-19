@@ -1,10 +1,11 @@
+// importa la pantalla de detalle del producto
 import 'package:coffee_shop_app/Screens/single_item_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ItemsWidget extends StatelessWidget {
   ItemsWidget({super.key});
-
+// Lista con los nombres de las imágenes/productos
   List img = [
     "Latte",
     "Espresso",
@@ -14,11 +15,13 @@ class ItemsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
-      physics: NeverScrollableScrollPhysics(),
-      crossAxisCount: 2,
+      physics:
+          NeverScrollableScrollPhysics(), // Desactiva el scroll para que ListView maneje el desplazamiento
+      crossAxisCount: 2, // Muestra 2 columnas
       shrinkWrap: true,
-      childAspectRatio: (150 / 200),
+      childAspectRatio: (150 / 201), // Proporción de ancho/alto de los ítems
       children: [
+        // Crea un contenedor para cada producto con un for
         for (int i = 0; i < img.length; i++)
           Container(
             padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
@@ -36,6 +39,7 @@ class ItemsWidget extends StatelessWidget {
             ),
             child: Column(
               children: [
+                // Imagen del producto con navegación al detalle
                 InkWell(
                   onTap: () {
                     Navigator.push(
@@ -48,13 +52,14 @@ class ItemsWidget extends StatelessWidget {
                   child: Container(
                     margin: EdgeInsets.all(2),
                     child: Image.asset(
-                      "lib/images/${img[i]}.png",
+                      "lib/images/${img[i]}.png", // Imagen correspondiente al producto
                       width: 120,
                       height: 120,
                       fit: BoxFit.contain,
                     ),
                   ),
                 ),
+                // Título y subtítulo del producto
                 Padding(
                   padding: EdgeInsets.only(bottom: 8),
                   child: Align(
@@ -63,14 +68,14 @@ class ItemsWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          img[i],
+                          img[i], // Nombre del producto
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
                         ),
-                        SizedBox(height: 8),
+                        SizedBox(height: 5),
                         Text(
                           "Best Coffee",
                           style: TextStyle(
@@ -83,12 +88,13 @@ class ItemsWidget extends StatelessWidget {
                     ),
                   ),
                 ),
+                // Precio y botón de agregar
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("\$30",
+                      Text("\$30", // Precio fijo
                           style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w500,
@@ -96,11 +102,11 @@ class ItemsWidget extends StatelessWidget {
                       Container(
                         padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                          color: Color(0xFFE57734),
+                          color: Color(0xFFE57734), // Color del botón "+"
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Icon(
-                          CupertinoIcons.add,
+                          CupertinoIcons.add, // Icono "+"
                           size: 20,
                           color: Colors.white,
                         ),

@@ -1,3 +1,5 @@
+// Importa el widget de la barra inferior personalizada
+// Importa el widget que contiene los productos (Items)
 import 'package:coffee_shop_app/widgets/home_bottom_bar.dart';
 import 'package:coffee_shop_app/widgets/items_widget.dart';
 import 'package:flutter/material.dart';
@@ -11,15 +13,19 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
-  late TabController _tabController;
+  // Permite animaciones como TabController
+  late TabController _tabController; // Controlador de pestañas
 
   @override
   void initState() {
+    // Inicializa el controlador con 4 pestañas
     _tabController = TabController(length: 4, vsync: this, initialIndex: 0);
+    // Agrega listener para manejar los cambios de pestaña
     _tabController.addListener(_handleTabSelection);
     super.initState();
   }
 
+// Función que se ejecuta cuando se cambia de pestaña
   _handleTabSelection() {
     if (_tabController.indexIsChanging) {
       setState(() {});
@@ -36,9 +42,11 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
+        // Evita que el contenido se superponga con el notch o la barra de estado
         child: Padding(
           padding: EdgeInsets.only(top: 15),
           child: ListView(
+            // Hace que la pantalla sea desplazable
             children: [
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15),
@@ -46,6 +54,7 @@ class _HomeScreenState extends State<HomeScreen>
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     InkWell(
+                      // Botón táctil sin funcionalidad aún
                       onTap: () {},
                       child: Icon(
                         Icons.sort_rounded,
@@ -76,6 +85,7 @@ class _HomeScreenState extends State<HomeScreen>
                       fontWeight: FontWeight.w500,
                     )),
               ),
+              // Barra de búsqueda
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
                 width: MediaQuery.of(context).size.width,
@@ -88,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen>
                 child: TextFormField(
                   decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: "Find yout coffee",
+                    hintText: "Find your coffee",
                     hintStyle: TextStyle(
                       color: Colors.white.withOpacity(0.5),
                     ),
@@ -97,11 +107,14 @@ class _HomeScreenState extends State<HomeScreen>
                   ),
                 ),
               ),
+              // Barra de pestañas (categorías de café)
               TabBar(
                   controller: _tabController,
-                  labelColor: Color(0xFFE57734),
-                  unselectedLabelColor: Colors.white.withOpacity(0.5),
-                  isScrollable: true,
+                  labelColor: Color(0xFFE57734), // Color de la pestaña activa
+                  unselectedLabelColor:
+                      Colors.white.withOpacity(0.5), // Color de las inactivas
+                  isScrollable:
+                      true, // Permite desplazamiento si hay muchas pestañas
                   indicator: UnderlineTabIndicator(
                     borderSide: BorderSide(
                       width: 3,
@@ -119,18 +132,21 @@ class _HomeScreenState extends State<HomeScreen>
                     Tab(text: "Americano"),
                   ]),
               SizedBox(height: 10),
+              // Muestra los productos según la pestaña seleccionada
               Center(
                 child: [
+                  ItemsWidget(), // Cada uno puede representar una categoría
                   ItemsWidget(),
                   ItemsWidget(),
                   ItemsWidget(),
-                  ItemsWidget(),
-                ][_tabController.index],
+                ][_tabController
+                    .index], // Muestra solo el correspondiente a la pestaña actual
               )
             ],
           ),
         ),
       ),
+      // Barra de navegación inferior personalizada
       bottomNavigationBar: HomeBottomBar(),
     );
   }

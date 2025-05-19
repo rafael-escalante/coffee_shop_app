@@ -1,3 +1,4 @@
+// Importa la pantalla principal (home) de la aplicación
 import 'package:coffee_shop_app/Screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,15 +12,18 @@ class WelcomeScreen extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.only(top: 100, bottom: 40),
         decoration: BoxDecoration(
-            color: Colors.black,
+            color: Colors.black, // Fondo negro
             image: DecorationImage(
+              // Imagen de fondo con opacidad
               image: AssetImage("lib/images/bg.png"),
               fit: BoxFit.cover,
               opacity: 0.6,
             )),
         child: Column(
+          // Columna que contiene el subtítulo y el botón
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            // Título del app con fuente personalizada
             Text(
               "Coffee Shop",
               style: GoogleFonts.pacifico(
@@ -41,6 +45,7 @@ class WelcomeScreen extends StatelessWidget {
                 SizedBox(
                   height: 80,
                 ),
+                // Botón personalizado con Material + InkWell
                 Material(
                   color: Color(0xFFE57734),
                   borderRadius: BorderRadius.circular(10),
