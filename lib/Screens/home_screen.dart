@@ -1,7 +1,10 @@
 // Importa el widget de la barra inferior personalizada
 // Importa el widget que contiene los productos (Items)
+import 'package:coffee_shop_app/widgets/americano_coffee.dart';
+import 'package:coffee_shop_app/widgets/capuccino_coffee.dart';
+import 'package:coffee_shop_app/widgets/cold_coffee.dart';
 import 'package:coffee_shop_app/widgets/home_bottom_bar.dart';
-import 'package:coffee_shop_app/widgets/items_widget.dart';
+import 'package:coffee_shop_app/widgets/hot_coffee.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -135,10 +138,10 @@ class _HomeScreenState extends State<HomeScreen>
               // Muestra los productos según la pestaña seleccionada
               Center(
                 child: [
-                  ItemsWidget(), // Cada uno puede representar una categoría
-                  ItemsWidget(),
-                  ItemsWidget(),
-                  ItemsWidget(),
+                  HotCoffee(), // Cada uno puede representar una categoría
+                  ColdCoffee(),
+                  CapuccinoCoffee(),
+                  AmericanoCoffee(),
                 ][_tabController
                     .index], // Muestra solo el correspondiente a la pestaña actual
               )

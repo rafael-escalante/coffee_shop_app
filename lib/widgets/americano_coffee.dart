@@ -3,8 +3,8 @@ import 'package:coffee_shop_app/Screens/single_item_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ItemsWidget extends StatelessWidget {
-  ItemsWidget({super.key});
+class AmericanoCoffee extends StatelessWidget {
+  AmericanoCoffee({super.key});
 // Lista con los nombres de las imágenes/productos
   List img = [
     "Latte",
