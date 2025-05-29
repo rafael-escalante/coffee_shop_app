@@ -46,7 +46,7 @@ class SingleItemScreen extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(
                     left: 25,
-                    right: 40,
+                    right: 20,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,6 +117,97 @@ class SingleItemScreen extends StatelessWidget {
                           ],
                         ),
                       ),
+                      SizedBox(height: 20),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              Colors.white;
+                            },
+                            child: Container(
+                              padding: EdgeInsets.all(15),
+                              width: 110,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.white.withOpacity(0.2),
+                                ),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Chico", //cantidad de productos fija
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 15),
+                          InkWell(
+                            onTap: () {
+                              Colors.white;
+                            },
+                            child: Container(
+                              padding: EdgeInsets.all(15),
+                              width: 110,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.white.withOpacity(0.2),
+                                ),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Mediano", //cantidad de productos fija
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 15),
+                          InkWell(
+                            onTap: () {
+                              Colors.white;
+                            },
+                            child: Container(
+                              padding: EdgeInsets.all(15),
+                              width: 110,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.white.withOpacity(0.2),
+                                ),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Grande", //cantidad de productos fija
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+
                       SizedBox(height: 20),
                       //descripcion del producto
                       Text(
